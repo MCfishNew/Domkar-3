@@ -1,9 +1,13 @@
-﻿var
+﻿uses crt;
+var
 casem: byte;
 function casemf(var v: byte): byte;
 begin
+textcolor(2);
 writeln('Да - 1');
+textcolor(4);
 writeln('Нет - 0');
+textcolor(1);
 Write('Выберите вариант: ');
 readln(v);
 casemf := v;
@@ -28,9 +32,12 @@ function predel: integer;
 begin
 var a, b, h, f, x, S: real;
 var n: integer;
+textcolor(5);
 Writeln('Вычисление площади фигуры, ограниченной кривой 2 * power(x, 3) + 0 * power(x, 2) -5 * x + 2 и осью Ох (в положительной части по оси Оу)');
+textcolor(2);
 print('Введите пределы интегрирования "a"<"b":');
 readln(a, b);
+textcolor(2);
 print('Количество интервалов разбиения:');
 readln(n);
 h := (b - a) / n;
@@ -42,13 +49,16 @@ S +=f;
 x +=h;
 end;
 S += func(a) + func(b);
+Textcolor(1);
 writeln('Ответ ', S);
 writeln;
+Textcolor(15);
 writeln('Вывести погрешность полученного результата?');
 casem := casemf(casem);
 case casem of
 1:
 begin
+Textcolor(2);
 writeln('Погрешность = ', abs((S - f)/S));
 end;
 0:
@@ -60,7 +70,6 @@ case casem of
 1: predel;
 0:
 begin
-writeln('Спасибо за использование данной программы, ждём снова!');
 exit()
 end
 end;
@@ -76,8 +85,6 @@ case casem of
 1: predel;
 0:
 begin
-writeln('Спасибо за использование данной программы, ждём снова!');
-
 exit()
 end
 end;
